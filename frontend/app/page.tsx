@@ -75,9 +75,19 @@ function papersToCsvString(papers: PaperRecord[]): string {
   ];
   const lines = [header.join(",")];
   for (const paper of papers) {
+    const pmid = String(paper.pmid ?? "").trim();
+    const fallbackLink = pmid
+      ? `https://pubmed.ncbi.nlm.nih.gov/${pmid}/`
+      : "";
+    const pubmedLink = String(paper.link ?? fallbackLink);
+    const rawTitle = String(paper.title ?? "");
+    const hyperlinkTitle = pubmedLink
+      ? `=HYPERLINK("${pubmedLink.replace(/"/g, '""')}", "${rawTitle.replace(/"/g, '""')}")`
+      : rawTitle;
+
     const row = [
-      String(paper.pmid ?? ""),
-      String(paper.title ?? ""),
+      pmid,
+      hyperlinkTitle,
       String(paper.year ?? ""),
       String(paper.journal ?? ""),
       listToCell(paper.authors),

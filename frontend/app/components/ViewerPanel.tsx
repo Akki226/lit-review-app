@@ -89,20 +89,20 @@ export default function ViewerPanel({
               return (
                 <div key={section} className="space-y-2">
                   <h3 className="text-sm font-medium text-neutral-800">{section}</h3>
-                  <div className="overflow-x-auto rounded border border-neutral-200">
-                    <table className="w-full min-w-[560px] border-collapse text-sm">
+                  <div className="table-container w-full overflow-x-auto rounded border border-neutral-200">
+                    <table className="w-full min-w-[760px] border-collapse text-sm">
                       <thead className="sticky top-0 z-10 bg-neutral-100 text-left text-neutral-700">
                         <tr>
-                          <th className="border-b border-neutral-200 px-4 py-2.5 font-medium">
+                          <th className="whitespace-nowrap border-b border-neutral-200 px-4 py-2.5 font-medium">
                             Section
                           </th>
-                          <th className="border-b border-neutral-200 px-4 py-2.5 font-medium">
+                          <th className="whitespace-nowrap border-b border-neutral-200 px-4 py-2.5 font-medium">
                             Title
                           </th>
-                          <th className="border-b border-neutral-200 px-4 py-2.5 font-medium">
+                          <th className="whitespace-nowrap border-b border-neutral-200 px-4 py-2.5 font-medium">
                             Year
                           </th>
-                          <th className="border-b border-neutral-200 px-4 py-2.5 font-medium">
+                          <th className="whitespace-nowrap border-b border-neutral-200 px-4 py-2.5 font-medium">
                             Journal
                           </th>
                         </tr>
@@ -113,8 +113,10 @@ export default function ViewerPanel({
                             key={`${section}-${idx}-${paper.title ?? ""}`}
                             className="border-b border-neutral-100 last:border-b-0 odd:bg-white even:bg-neutral-50/60"
                           >
-                            <td className="px-4 py-2.5 text-neutral-700">{section}</td>
-                            <td className="px-4 py-2.5">
+                            <td className="whitespace-nowrap px-4 py-2.5 text-neutral-700">
+                              {section}
+                            </td>
+                            <td className="whitespace-nowrap px-4 py-2.5">
                               {paper.link ? (
                                 <a
                                   href={paper.link}
@@ -134,10 +136,10 @@ export default function ViewerPanel({
                                 </span>
                               )}
                             </td>
-                            <td className="px-4 py-2.5 text-neutral-700">
+                            <td className="whitespace-nowrap px-4 py-2.5 text-neutral-700">
                               {paper.year ?? ""}
                             </td>
-                            <td className="px-4 py-2.5 text-neutral-700">
+                            <td className="whitespace-nowrap px-4 py-2.5 text-neutral-700">
                               {paper.journal ?? ""}
                             </td>
                           </tr>
