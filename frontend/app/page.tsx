@@ -3,7 +3,8 @@
 import { useEffect, useState } from "react";
 import ViewerPanel from "./components/ViewerPanel";
 
-const BACKEND_ORIGIN = "http://127.0.0.1:8000";
+const BACKEND_ORIGIN =
+  process.env.NEXT_PUBLIC_BACKEND_URL ?? "http://127.0.0.1:8000";
 const FREE_USAGE_LIMIT = 5;
 
 const LIMIT_OPTIONS = [
